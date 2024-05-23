@@ -118,11 +118,3 @@ TEST(check_rotate, check_rotate) {
     b.rotate(2);
     EXPECT_EQ(b[0], 22);
 }
-
-int main(int argc, char** argv)
-{
-	::testing::InitGoogleTest(&argc, argv);
-
-
-	return RUN_ALL_TESTS();
-}

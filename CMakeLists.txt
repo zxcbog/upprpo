@@ -4,11 +4,15 @@ project(circ_buffer)
 
 enable_testing()
 
-set(SOURCE main.cpp)
-set(STATIC_LIB circular_buffer.cpp)
+file(GLOB all_SRCS
+        "${PROJECT_SOURCE_DIR}/include/*.h"
+        "${PROJECT_SOURCE_DIR}/src/*.cpp"
+)
+include_directories("include")
 
+add_subdirectory(tests)
 add_subdirectory("googletest")
 set(CMAKE_CXX_STANDARD 14)
-add_library(circular_buffer STATIC ${STATIC_LIB})
-add_executable(main ${SOURCE})
-target_link_libraries(main circular_buffer gtest gmock)
+add_library(circular_buffer STATIC ${all_SRCS})
+add_executable(app ${all_SRCS})
+target_link_libraries(circular_buffer gtest gmock)

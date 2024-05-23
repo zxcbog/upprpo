@@ -1,5 +1,6 @@
 #include "circular_buffer.h"
 #include <iostream>
+#include <string.h>
 
 CircularBuffer::iterator::iterator(CircularBuffer& container, size_t index_) : container_(container), index_(index_% container_.capacity()) { first_step = true; }
 value_type& CircularBuffer::iterator::operator*() const { return container_[index_]; }
